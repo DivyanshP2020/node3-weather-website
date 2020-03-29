@@ -3,7 +3,9 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+
 const app = express()
+const port = process.env.PORT  || 3000
 
 // Setup Hnadlebars engine and views location
 app.set('view engine','hbs')
@@ -86,7 +88,7 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=> {
-    console.log('server is up and about')
+app.listen(port, ()=> {
+    console.log('server is up and about on '+port)
 })
 
